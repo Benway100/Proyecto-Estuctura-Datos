@@ -1,4 +1,4 @@
-# Proyecto-Estuctura-Datos
+# Proyecto Estuctura Datos
 
 >[!IMPORTANT]
 >Mejor proyecto
