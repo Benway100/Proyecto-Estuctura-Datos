@@ -68,13 +68,17 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(null);
         panelinicio.setLayout(null);
 
-        jButton1.setOpaque(false);              // No pintar el fondo
-        jButton1.setContentAreaFilled(false);   // No rellenar el área del contenido
+        jButton1.setOpaque(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.setBorderPainted(false);
+        jButton1.setFocusPainted(false);
+        jButton1.setBackground(new java.awt.Color(0,0,0,0));
 
-        jButton2.setOpaque(false);              // No pintar el fondo
-        jButton2.setContentAreaFilled(false);   // No rellenar el área del contenido
+        jButton2.setOpaque(false);
+        jButton2.setContentAreaFilled(false);
         jButton2.setBorderPainted(false);
+        jButton2.setFocusPainted(false);
+        jButton2.setBackground(new java.awt.Color(0,0,0,0));
 
         panelinicio.setBounds(0, 0, 300, 621);
         jButton1.setBounds(40, 410, 210, 60);
@@ -161,7 +165,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        Der(jButton1, 10, 5, 10);
+        Izq(panelinicio, 10, 5, -300);
     }//GEN-LAST:event_jButton2MouseClicked
 
     /**
