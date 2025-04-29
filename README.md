@@ -1,4 +1,4 @@
 # Proyecto-Estuctura-Datos
 
->[!CAUTION]
->putos todos
+>[!IMPORTANT]
+>Mejor proyecto
