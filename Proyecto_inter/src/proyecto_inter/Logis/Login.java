@@ -37,7 +37,7 @@ public class Login extends javax.swing.JFrame {
                     SwingUtilities.invokeLater(() -> componente.setLocation(x, y));
                 } catch (InterruptedException e) {
                     System.out.println("Error Thread Interrumpidoa: " + e);
-                    
+
                 }
             }
         }).start();
@@ -63,27 +63,29 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-
         initComponents();
-        getContentPane().setLayout(null);
+
+        // Importante: usar null layout
+        jButton2.setLayout(null);
         panelinicio.setLayout(null);
+        TextoLogin.setBackground(new java.awt.Color(0, 0, 0, 0)); // Fondo 100% transparente
+        TextoLogin.setBorder(null); // Opcional: sin bordes
+
+        getContentPane().add(panelinicio);
+        panelinicio.setBounds(0, 0, 300, 621);
+        PanelLogin.setBounds(-300, 0, 300, 621);
+        getContentPane().add(PanelLogin);
+
+        jButton1.setBounds(40, 410, 211, 60);
+        jButton2.setBounds(40, 480, 211, 60);
 
         jButton1.setOpaque(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setBorderPainted(false);
-        jButton1.setFocusPainted(false);
-        jButton1.setBackground(new java.awt.Color(0,0,0,0));
 
         jButton2.setOpaque(false);
         jButton2.setContentAreaFilled(false);
         jButton2.setBorderPainted(false);
-        jButton2.setFocusPainted(false);
-        jButton2.setBackground(new java.awt.Color(0,0,0,0));
-
-        panelinicio.setBounds(0, 0, 300, 621);
-        jButton1.setBounds(40, 410, 210, 60);
-        jButton2.setBounds(40, 480, 210, 60);
-
     }
 
     /**
@@ -95,7 +97,9 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        PanelLogin = new fondoLogin();
         panelinicio = new fondopanel();
+        TextoLogin = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -103,10 +107,32 @@ public class Login extends javax.swing.JFrame {
         setTitle("DUNAB+");
         setBackground(new java.awt.Color(153, 204, 0));
 
+        PanelLogin.setPreferredSize(new java.awt.Dimension(300, 621));
+        PanelLogin.setLayout(null);
+
         getContentPane().setLayout(null);
         panelinicio.setMaximumSize(new java.awt.Dimension(300, 621));
         panelinicio.setMinimumSize(new java.awt.Dimension(300, 621));
         panelinicio.setLayout(null);
+
+        TextoLogin.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        TextoLogin.setForeground(new java.awt.Color(255, 255, 255));
+        TextoLogin.setText("ID Unab");
+        TextoLogin.setToolTipText("Ingrese su ID");
+        TextoLogin.setBorder(null);
+        TextoLogin.setCaretColor(new java.awt.Color(255, 255, 255));
+        TextoLogin.setDisabledTextColor(new java.awt.Color(102, 102, 0));
+        TextoLogin.setOpaque(false);
+        TextoLogin.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TextoLoginFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                TextoLoginFocusLost(evt);
+            }
+        });
+        panelinicio.add(TextoLogin);
+        TextoLogin.setBounds(115, 426, 110, 30);
 
         jButton1.setBackground(new java.awt.Color(255, 153, 0));
         jButton1.setForeground(new java.awt.Color(232, 164, 38));
@@ -146,10 +172,20 @@ public class Login extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelinicio, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelinicio, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
+            .addComponent(panelinicio, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PanelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -165,8 +201,20 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-        Izq(panelinicio, 10, 5, -300);
+        Der(panelinicio, 10, 5, 300);
+        Der(PanelLogin, 10, 5, 0);
+
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void TextoLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextoLoginFocusGained
+        // TODO add your handling code here:
+        TextoLogin.setText("");
+    }//GEN-LAST:event_TextoLoginFocusGained
+
+    private void TextoLoginFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TextoLoginFocusLost
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_TextoLoginFocusLost
 
     /**
      * @param args the command line arguments
@@ -205,6 +253,8 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelLogin;
+    private javax.swing.JTextField TextoLogin;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel panelinicio;
@@ -217,6 +267,17 @@ public class Login extends javax.swing.JFrame {
         public void paint(Graphics g) {
             imagen = new ImageIcon(getClass().getResource("/imagenes/fondo.png")).getImage();
             g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
+    class fondoLogin extends JPanel {
+
+        private Image imagen1;
+
+        public void paint(Graphics g) {
+            imagen1 = new ImageIcon(getClass().getResource("/imagenes/fondo_login.png")).getImage();
+            g.drawImage(imagen1, 0, 0, getWidth(), getHeight(), this);
             setOpaque(false);
             super.paint(g);
         }
