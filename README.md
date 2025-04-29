@@ -3,4 +3,3 @@
 >[!IMPORTANT]
 >Mejor proyecto
 - [x] Programar
-- [ ] culear
