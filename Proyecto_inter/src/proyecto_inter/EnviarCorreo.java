@@ -8,16 +8,17 @@ package proyecto_inter;
  *
  * @author mvale
  */
+import com.sun.mail.imap.protocol.ID;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
 import java.util.Properties;
 
 public class EnviarCorreo {
 
-    public static void main(String[] args) {
+    public static void enviar(String correo, String nombre, String id, String contra,String apodo) {
         final String remitente = "dunabplus@gmail.com"; // tu correo
         final String clave = "bncb eygp rujr prvs"; // tu contrase?a o contrase?a de aplicaci?n
-        final String destinatario = "mvalera@unab.edu.co"; // a qui�n le enviar�s
+        final String destinatario =correo; // a qui�n le enviar�s
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
@@ -36,30 +37,24 @@ public class EnviarCorreo {
             message.setFrom(new InternetAddress(remitente));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinatario));
             message.setSubject("🎉 ¡Registro exitoso! Bienvenido a nuestra plataforma");
-            String html = """
-    <div style='font-family: Arial, sans-serif; font-size: 14px; color: #333;'>
-        <p style='font-size: 16px;'>Hola 👋</p>
+            
 
-        <p><strong>¡Bienvenido a <span style='color:#4CAF50;'>Dunab+</span>! 🎉</strong></p>
-
-        <p>
-            Tu cuenta ha sido creada con éxito y ya puedes empezar a gestionar tus finanzas con nosotros.<br>
-            Desde ahora podrás llevar el control de tus <strong>ingresos</strong>, <strong>gastos</strong> y mucho más, todo desde una sola plataforma.
-        </p>
-
-        <p style='color: #00897B; font-weight: bold;'>💰 Recuerda: en Dunab+, cada Đ cuenta. 😉</p>
-
-        <p>
-            Si tienes preguntas o necesitas ayuda, <em>estamos aquí para ti</em>.
-        </p>
-
-        <p>Gracias por confiar en nosotros,</p>
-
-        <p><strong>El equipo de Dunab+</strong></p>
-    </div>
-    """;
-
-            message.setContent(html, "text/html");
+            message.setText("Hola,👋\n\n" +
+    "¡Bienvenido a Dunab+! \n\n" +
+    "Tu cuenta ha sido creada con éxito y ya puedes empezar a gestionar tus finanzas con nosotros.\n" +
+    "Desde ahora podrás llevar el control de tus ingresos, gastos y mucho más, todo desde una sola plataforma.\n\n" +
+    "Tu cuenta en Dunab+ esta inscrita con estos datos:\n"+
+                    
+    "Nombre: "+nombre+
+    "\nApodo: "+apodo+
+    "\nID: "+id+
+    "\nCorreo: "+correo+
+    "\nContraseña: "+contra+
+    
+    "\n💰 Recuerda: en Dunab+, cada Đ cuenta. 😉\n\n" +
+    "Si tienes preguntas o necesitas ayuda, estamos aquí para ti.\n\n" +
+    "Gracias por confiar en nosotros,\n" +
+    "El equipo de Dunab+");
 
             Transport.send(message);
 
