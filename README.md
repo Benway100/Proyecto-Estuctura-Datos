@@ -3,6 +3,6 @@
 >[!IMPORTANT]
 >Mejor proyecto
 - [x] Programar
-- [ ] Sacar 5
-- [ ] Terminar el semestre
-- [ ] Descansar
+- [x] Sacar 5
+- [o] Terminar el semestre
+- [o] Descansar
